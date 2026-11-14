@@ -64,9 +64,6 @@ Pulse is a modern, privacy-focused, zero-dependency health tracker application d
 
 ### Option 1: Open Directly in Browser
 Double-click `index.html` or open it with Google Chrome, Microsoft Edge, or Firefox:
-```powershell
-Start-Process "C:\Users\mayan\.gemini\antigravity\scratch\health-tracker\index.html"
-```
 
 ### Option 2: Install as a Desktop App (PWA)
 1. Open `index.html` in Microsoft Edge or Google Chrome.
