@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pulse - Health & Telemetry Log</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#141415">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                </div>
+                <div class="brand-title">Pulse</div>
+            </div>
+
+            <ul class="nav-menu">
+                <li>
+                    <button class="nav-link active" data-view="dashboard">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                        Dashboard
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-link" data-view="activity">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Activity
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-link" data-view="hydration">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                        Hydration
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-link" data-view="nutrition">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+                        Nutrition
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-link" data-view="vitals">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        Vitals & sleep
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-link" data-view="habits">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Habits & regimen
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-link" data-view="trends">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        Trends
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-link" data-view="settings">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        Settings
+                    </button>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="user-profile-mini" onclick="app.switchView('settings')">
+                    <div class="user-avatar">AM</div>
+                    <div class="user-info-text">
+                        <div class="user-name" id="header-user-name">Alex Morgan</div>
+                        <div class="user-sub">Daily telemetry</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <main class="main-wrapper">
+            <!-- Header Bar -->
+            <header class="top-header">
+                <!-- Date Switcher -->
+                <div class="date-navigator">
+                    <button class="date-btn" id="prev-date-btn" title="Previous day">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <span class="date-display" id="current-date-display">Today</span>
+                    <button class="date-btn" id="next-date-btn" title="Next day">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                    <button class="today-chip" id="today-chip">Today</button>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="header-actions">
+                    <button class="action-icon-btn" id="sound-toggle-btn" title="Toggle audio feedback">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    </button>
+                    <button class="action-icon-btn" id="theme-toggle-btn" title="Toggle theme">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                    <button class="quick-log-btn" id="quick-log-btn">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Record
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                
+                <!-- 1. DASHBOARD VIEW -->
+                <section class="view-section active" id="view-dashboard">
+                    <!-- Baseline Banner -->
+                    <div class="hero-banner">
+                        <div>
+                            <h1 class="hero-title">Daily health summary</h1>
+                            <p class="hero-subtitle">Adherence across movement, hydration, sleep, caloric intake, and habit schedule.</p>
+                            <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                                <span class="mono-meta">Status:</span>
+                                <span id="hero-health-score-status" class="mono-meta" style="color: var(--accent); font-weight: 500;">Optimal</span>
+                            </div>
+                        </div>
+                        <div class="hero-score-ring">
+                            <canvas id="canvas-hero-score" class="chart-canvas" width="90" height="90"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Quick Action Chips -->
+                    <div class="quick-action-strip">
+                        <button class="chip-btn" onclick="app.addWater(250)">+250 ml water</button>
+                        <button class="chip-btn" onclick="app.addWater(500)">+500 ml water</button>
+                        <button class="chip-btn" onclick="app.openModal('modal-workout')">Log workout</button>
+                        <button class="chip-btn" onclick="app.openModal('modal-meal')">Log meal</button>
+                        <button class="chip-btn" onclick="app.openModal('modal-vitals')">Log vitals</button>
+                        <button class="chip-btn" onclick="app.openModal('modal-sleep')">Log sleep</button>
+                    </div>
+
+                    <!-- Metric Cards -->
+                    <div class="grid-cards">
+                        <!-- Steps Card -->
+                        <div class="card" onclick="app.switchView('activity')" style="cursor: pointer;">
+                            <div class="card-header">
+                                <span class="card-title">Steps</span>
+                                <span class="card-badge" id="card-steps-pct">0%</span>
+                            </div>
+                            <div class="metric-value-wrap">
+                                <span class="metric-big" id="card-steps-val">0</span>
+                                <span class="metric-unit">steps</span>
+                                <span class="metric-goal" id="card-steps-goal">Goal: 10,000</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="card-steps-bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="card-footer-info">
+                                <span>Daily movement</span>
+                                <span>Activity →</span>
+                            </div>
+                        </div>
+
+                        <!-- Hydration Card -->
+                        <div class="card" onclick="app.switchView('hydration')" style="cursor: pointer;">
+                            <div class="card-header">
+                                <span class="card-title">Hydration</span>
+                                <span class="card-badge" id="card-water-pct">0%</span>
+                            </div>
+                            <div class="metric-value-wrap">
+                                <span class="metric-big" id="card-water-val">0</span>
+                                <span class="metric-unit">ml</span>
+                                <span class="metric-goal" id="card-water-goal">Goal: 2,500 ml</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="card-water-bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="card-footer-info">
+                                <span>Fluid intake</span>
+                                <span>Hydration →</span>
+                            </div>
+                        </div>
+
+                        <!-- Nutrition Card -->
+                        <div class="card" onclick="app.switchView('nutrition')" style="cursor: pointer;">
+                            <div class="card-header">
+                                <span class="card-title">Calories</span>
+                                <span class="card-badge" id="card-cal-pct">0%</span>
+                            </div>
+                            <div class="metric-value-wrap">
+                                <span class="metric-big" id="card-cal-val">0</span>
+                                <span class="metric-unit">kcal</span>
+                                <span class="metric-goal" id="card-cal-goal">Target: 2,100 kcal</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="card-cal-bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="card-footer-info">
+                                <span>Energy consumed</span>
+                                <span>Nutrition →</span>
+                            </div>
+                        </div>
+
+                        <!-- Sleep Card -->
+                        <div class="card" onclick="app.switchView('vitals')" style="cursor: pointer;">
+                            <div class="card-header">
+                                <span class="card-title">Sleep</span>
+                                <span class="card-badge" id="card-sleep-pct">Restful</span>
+                            </div>
+                            <div class="metric-value-wrap">
+                                <span class="metric-big" id="card-sleep-val">0h</span>
+                                <span class="metric-unit">duration</span>
+                                <span class="metric-goal" id="card-sleep-goal">Goal: 8h</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="card-sleep-bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="card-footer-info">
+                                <span>Recovery rest</span>
+                                <span>Vitals →</span>
+                            </div>
+                        </div>
+
+                        <!-- Weight & BMI Card -->
+                        <div class="card" onclick="app.switchView('vitals')" style="cursor: pointer;">
+                            <div class="card-header">
+                                <span class="card-title">Weight & BMI</span>
+                                <span class="card-badge" id="card-bmi-badge">BMI: 23.1</span>
+                            </div>
+                            <div class="metric-value-wrap">
+                                <span class="metric-big" id="card-weight-val">68.5 kg</span>
+                                <span class="metric-goal" id="card-weight-goal">Target: 65.0 kg</span>
+                            </div>
+                            <div class="card-footer-info" style="margin-top: 14px;">
+                                <span>Body mass index</span>
+                                <span>Vitals →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7-Day Steps Trend Chart -->
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <span class="card-title">7-day step performance</span>
+                            <button class="chip-btn" onclick="app.switchView('trends')" style="padding: 2px 8px; font-size: 0.75rem;">View trends →</button>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="canvas-steps-trend" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Workouts & Meals Split -->
+                    <div class="grid-equal-col">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Today's workouts</span>
+                                <button class="chip-btn" onclick="app.openModal('modal-workout')" style="padding: 2px 8px; font-size: 0.75rem;">+ Add</button>
+                            </div>
+                            <div id="workouts-feed-list"></div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Today's meals</span>
+                                <button class="chip-btn" onclick="app.openModal('modal-meal')" style="padding: 2px 8px; font-size: 0.75rem;">+ Add</button>
+                            </div>
+                            <div id="meals-feed-list"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. ACTIVITY & WORKOUTS VIEW -->
+                <section class="view-section" id="view-activity">
+                    <div class="hero-banner">
+                        <div>
+                            <h1 class="hero-title">Physical activity & exercise</h1>
+                            <p class="hero-subtitle">Exercise sessions, active calories burned, and step logs.</p>
+                        </div>
+                        <button class="btn-primary" onclick="app.openModal('modal-workout')">Log workout</button>
+                    </div>
+
+                    <div class="grid-cards">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Active calorie burn</span>
+                            </div>
+                            <div class="metric-big" id="workout-total-burn">0 kcal</div>
+                            <div class="card-footer-info" style="margin-top: 8px;">Active energy expenditure</div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Exercise duration</span>
+                            </div>
+                            <div class="metric-big" id="workout-total-duration">0 mins</div>
+                            <div class="card-footer-info" style="margin-top: 8px;">Logged workout time</div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <span class="card-title">Quick step logger</span>
+                        </div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="chip-btn" onclick="app.getEntry(app.selectedDate).steps += 1000; app.saveState(); app.render(); app.showToast('Added 1,000 steps', 'info');">+1,000 steps</button>
+                            <button class="chip-btn" onclick="app.getEntry(app.selectedDate).steps += 2500; app.saveState(); app.render(); app.showToast('Added 2,500 steps', 'info');">+2,500 steps</button>
+                            <button class="chip-btn" onclick="app.getEntry(app.selectedDate).steps += 5000; app.saveState(); app.render(); app.showToast('Added 5,000 steps', 'info');">+5,000 steps</button>
+                            <button class="chip-btn" onclick="const s = prompt('Enter exact step count:'); if(s) { app.getEntry(app.selectedDate).steps = parseInt(s,10)||0; app.saveState(); app.render(); }">Set custom steps</button>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <span class="card-title">Today's recorded workouts</span>
+                            <button class="btn-secondary" onclick="app.openModal('modal-workout')" style="padding: 4px 10px; font-size: 0.8rem;">+ Log workout</button>
+                        </div>
+                        <div id="workouts-tab-list"></div>
+                    </div>
+                </section>
+
+                <!-- 3. HYDRATION VIEW -->
+                <section class="view-section" id="view-hydration">
+                    <div class="hero-banner">
+                        <div>
+                            <h1 class="hero-title">Hydration telemetry</h1>
+                            <p class="hero-subtitle">Calibrated volume tracking and intake intervals.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid-two-col">
+                        <!-- Fluid Level Gauge -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Current volume</span>
+                                <span class="metric-big" id="water-widget-val" style="font-size: 1.15rem;">0 / 2,500 ml</span>
+                            </div>
+
+                            <div class="water-container">
+                                <div class="water-gauge-frame">
+                                    <div class="water-gauge-liquid" id="water-bottle-liquid" style="height: 0%;"></div>
+                                    <div class="water-gauge-ticks">
+                                        <div class="water-tick"></div>
+                                        <div class="water-tick"></div>
+                                        <div class="water-tick"></div>
+                                        <div class="water-tick"></div>
+                                        <div class="water-tick"></div>
+                                    </div>
+                                </div>
+
+                                <div class="water-quick-buttons">
+                                    <button class="water-add-btn" data-amount="250">+250 ml</button>
+                                    <button class="water-add-btn" data-amount="500">+500 ml</button>
+                                    <button class="water-add-btn" data-amount="750">+750 ml</button>
+                                    <button class="water-add-btn" data-amount="1000">+1,000 ml</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Water Logs -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Intake timestamps</span>
+                            </div>
+                            <div id="water-logs-list" style="max-height: 280px; overflow-y: auto;"></div>
+                        </div>
+                    </div>
+
+                    <!-- 7-Day Hydration Trend -->
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">7-day hydration consistency</span>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="canvas-water-trend" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. NUTRITION VIEW -->
+                <section class="view-section" id="view-nutrition">
+                    <div class="hero-banner">
+                        <div>
+                            <h1 class="hero-title">Nutrition & caloric budget</h1>
+                            <p class="hero-subtitle">Caloric balance and macronutrient distribution.</p>
+                        </div>
+                        <button class="btn-primary" onclick="app.openModal('modal-meal')">Log meal</button>
+                    </div>
+
+                    <div class="grid-cards">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Calories consumed</span>
+                            </div>
+                            <div class="metric-big" id="nutrition-total-cal">0</div>
+                            <div class="card-footer-info" style="margin-top: 8px;">
+                                <span>Remaining allowance:</span>
+                                <span id="nutrition-rem-cal" class="mono-meta">2,100 left</span>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Macronutrient split</span>
+                            </div>
+                            <div class="macro-pills">
+                                <div class="macro-box">
+                                    <div class="macro-label">Protein</div>
+                                    <div class="macro-val" id="macro-protein-val">0g</div>
+                                </div>
+                                <div class="macro-box">
+                                    <div class="macro-label">Carbs</div>
+                                    <div class="macro-val" id="macro-carbs-val">0g</div>
+                                </div>
+                                <div class="macro-box">
+                                    <div class="macro-label">Fats</div>
+                                    <div class="macro-val" id="macro-fat-val">0g</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7-Day Calorie Trend Chart -->
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <span class="card-title">7-day calorie consumption vs target</span>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="canvas-cal-trend" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Meals List in Nutrition Tab -->
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <span class="card-title">Today's recorded meals</span>
+                            <button class="btn-secondary" onclick="app.openModal('modal-meal')" style="padding: 4px 10px; font-size: 0.8rem;">+ Log meal</button>
+                        </div>
+                        <div id="meals-tab-list"></div>
+                    </div>
+                </section>
+
+                <!-- 5. VITALS & SLEEP VIEW -->
+                <section class="view-section" id="view-vitals">
+                    <div class="hero-banner">
+                        <div>
+                            <h1 class="hero-title">Biometrics & sleep architecture</h1>
+                            <p class="hero-subtitle">Clinical vitals, blood pressure ranges, resting pulse, and sleep intervals.</p>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-primary" onclick="app.openModal('modal-vitals')">Record vitals</button>
+                            <button class="btn-secondary" onclick="app.openModal('modal-sleep')">Record sleep</button>
+                        </div>
+                    </div>
+
+                    <div class="grid-cards">
+                        <!-- Blood Pressure -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Blood pressure</span>
+                                <span class="vitals-status-pill status-optimal" id="vitals-bp-badge">Optimal</span>
+                            </div>
+                            <div class="metric-big" id="vitals-bp-display">120/80 mmHg</div>
+                            <div class="card-footer-info" style="margin-top: 8px;">AHA guideline range</div>
+                        </div>
+
+                        <!-- Heart Rate -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Resting heart rate</span>
+                            </div>
+                            <div class="metric-big" id="vitals-hr-display">72 bpm</div>
+                            <div class="card-footer-info" style="margin-top: 8px;">Resting baseline</div>
+                        </div>
+
+                        <!-- Blood Sugar & SpO2 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Glucose & oxygen</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 4px;">
+                                <div>
+                                    <span class="mono-meta">Fasting glucose</span>
+                                    <div class="metric-big" style="font-size: 1.25rem;" id="vitals-glucose-display">95 mg/dL</div>
+                                </div>
+                                <div>
+                                    <span class="mono-meta">Blood oxygen</span>
+                                    <div class="metric-big" style="font-size: 1.25rem;" id="vitals-spo2-display">99%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sleep Summary -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Sleep duration</span>
+                                <span class="card-badge" id="sleep-quality-tag">Restful</span>
+                            </div>
+                            <div class="metric-big" id="sleep-duration-display">8.0 hrs</div>
+                            <div class="card-footer-info" style="margin-top: 8px;">
+                                <span id="sleep-times-display" class="mono-meta">23:00 → 07:00</span>
+                                <span id="sleep-score-display" class="mono-meta">Score: 85/100</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 14-Day Blood Pressure Line Chart -->
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-header">
+                            <span class="card-title">14-day blood pressure trend (systolic & diastolic)</span>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="canvas-bp-trend" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- 7-Day Sleep Duration Line Chart -->
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">7-day sleep duration history</span>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="canvas-sleep-trend" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. HABITS & REGIMEN VIEW -->
+                <section class="view-section" id="view-habits">
+                    <div class="hero-banner">
+                        <div>
+                            <h1 class="hero-title">Daily regimen & supplements</h1>
+                            <p class="hero-subtitle">Recurring preventive habits and scheduled dosages.</p>
+                        </div>
+                        <button class="btn-primary" onclick="app.openModal('modal-habit')">Add habit</button>
+                    </div>
+
+                    <div class="grid-equal-col">
+                        <!-- Daily Habits -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Habit checklist</span>
+                                <span class="mono-meta">Toggle status</span>
+                            </div>
+                            <div id="habits-checklist-container"></div>
+                        </div>
+
+                        <!-- Medications -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Prescriptions & supplements</span>
+                                <span class="mono-meta">Daily schedule</span>
+                            </div>
+                            <div id="medications-checklist-container"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. TRENDS VIEW -->
+                <section class="view-section" id="view-trends">
+                    <div class="hero-banner">
+                        <div>
+                            <h1 class="hero-title">Longitudinal trends & analytics</h1>
+                            <p class="hero-subtitle">Multi-week trajectory telemetry and metabolic patterns.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid-equal-col">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">14-day weight & target trajectory</span>
+                            </div>
+                            <div class="chart-box">
+                                <canvas id="canvas-weight-trend" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">14-day blood pressure</span>
+                            </div>
+                            <div class="chart-box">
+                                <canvas id="canvas-trends-bp" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-equal-col">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">7-day step performance</span>
+                            </div>
+                            <div class="chart-box">
+                                <canvas id="canvas-trends-steps" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">7-day hydration volume</span>
+                            </div>
+                            <div class="chart-box">
+                                <canvas id="canvas-trends-water" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-equal-col">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">7-day calorie consumption</span>
+                            </div>
+                            <div class="chart-box">
+                                <canvas id="canvas-trends-cal" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">7-day sleep duration</span>
+                            </div>
+                            <div class="chart-box">
+                                <canvas id="canvas-trends-sleep" class="chart-canvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. SETTINGS VIEW -->
+                <section class="view-section" id="view-settings">
+                    <div class="hero-banner">
+                        <div>
+                            <h1 class="hero-title">Profile & physiological targets</h1>
+                            <p class="hero-subtitle">Configure baseline measurements and export local records.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid-equal-col">
+                        <!-- Profile Form -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Biometrics & goals</span>
+                            </div>
+                            <form id="form-profile-settings" class="modal-body" style="padding: 0;">
+                                <div class="form-group">
+                                    <label class="form-label">Full name</label>
+                                    <input type="text" class="form-input" id="settings-name" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Height (cm)</label>
+                                        <input type="number" class="form-input" id="settings-height" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Current weight (kg)</label>
+                                        <input type="number" step="0.1" class="form-input" id="settings-weight" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Target weight (kg)</label>
+                                        <input type="number" step="0.1" class="form-input" id="settings-target-weight" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Daily step target</label>
+                                        <input type="number" class="form-input" id="settings-step-goal" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Daily water target (ml)</label>
+                                        <input type="number" class="form-input" id="settings-water-goal" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Caloric target (kcal)</label>
+                                        <input type="number" class="form-input" id="settings-calorie-goal" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Sleep target (hours)</label>
+                                    <input type="number" step="0.5" class="form-input" id="settings-sleep-goal" required>
+                                </div>
+                                <button type="submit" class="btn-primary" style="margin-top: 6px;">Save targets</button>
+                            </form>
+                        </div>
+
+                        <!-- Data Management -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Data records</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 14px;">
+                                <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                                    All telemetry is retained client-side in browser local storage.
+                                </p>
+
+                                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                    <button class="btn-secondary" id="btn-export-json">Export JSON</button>
+                                    <label class="btn-secondary" style="cursor: pointer; display: inline-flex; align-items: center;">
+                                        Import JSON
+                                        <input type="file" id="input-import-json" accept=".json" style="display: none;">
+                                    </label>
+                                </div>
+
+                                <hr style="border: none; border-top: 1px solid var(--border-hairline); margin: 6px 0;">
+
+                                <div>
+                                    <h4 style="font-size: 0.875rem; font-weight: 500; margin-bottom: 4px;">Baseline sample data</h4>
+                                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">Load 14 days of telemetry records to review longitudinal charts.</p>
+                                    <button class="btn-secondary" id="btn-load-demo-data">Load 14-day sample history</button>
+                                </div>
+
+                                <hr style="border: none; border-top: 1px solid var(--border-hairline); margin: 6px 0;">
+
+                                <div>
+                                    <h4 style="font-size: 0.875rem; font-weight: 500; color: var(--negative); margin-bottom: 4px;">Reset records</h4>
+                                    <button class="btn-secondary" id="btn-reset-data" style="color: var(--negative); border-color: rgba(229, 72, 77, 0.3);">Clear all records</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav">
+        <button class="mobile-nav-btn active" data-view="dashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+            Dashboard
+        </button>
+        <button class="mobile-nav-btn" data-view="activity">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Activity
+        </button>
+        <button class="mobile-nav-btn" data-view="hydration">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            Hydration
+        </button>
+        <button class="mobile-nav-btn" data-view="nutrition">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+            Nutrition
+        </button>
+        <button class="mobile-nav-btn" data-view="vitals">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Vitals
+        </button>
+    </nav>
+
+    <!-- MODAL 1: Quick Choice -->
+    <div class="modal-overlay" id="modal-quick-log">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Record entry</h3>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <button class="chip-btn" style="padding: 12px; justify-content: center;" onclick="app.closeModal('modal-quick-log'); app.openModal('modal-workout');">
+                        Workout
+                    </button>
+                    <button class="chip-btn" style="padding: 12px; justify-content: center;" onclick="app.closeModal('modal-quick-log'); app.openModal('modal-meal');">
+                        Meal
+                    </button>
+                    <button class="chip-btn" style="padding: 12px; justify-content: center;" onclick="app.closeModal('modal-quick-log'); app.openModal('modal-vitals');">
+                        Vitals & BP
+                    </button>
+                    <button class="chip-btn" style="padding: 12px; justify-content: center;" onclick="app.closeModal('modal-quick-log'); app.openModal('modal-sleep');">
+                        Sleep
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Workout -->
+    <div class="modal-overlay" id="modal-workout">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Log workout</h3>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <form id="form-log-workout">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label">Workout title</label>
+                        <input type="text" class="form-input" id="workout-name" placeholder="e.g. 5km run, leg press" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Type</label>
+                            <select class="form-select" id="workout-type">
+                                <option value="Running">Running</option>
+                                <option value="Cycling">Cycling</option>
+                                <option value="Strength">Strength training</option>
+                                <option value="Walking">Walking</option>
+                                <option value="HIIT">HIIT</option>
+                                <option value="Yoga">Yoga</option>
+                                <option value="Swimming">Swimming</option>
+                                <option value="Pilates">Pilates</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Intensity</label>
+                            <select class="form-select" id="workout-intensity">
+                                <option value="Moderate">Moderate</option>
+                                <option value="High">High</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Duration (minutes)</label>
+                            <input type="number" class="form-input" id="workout-duration" value="30" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Calories burned (kcal)</label>
+                            <input type="number" class="form-input" id="workout-calories" value="250" min="0" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary modal-cancel-btn">Cancel</button>
+                    <button type="submit" class="btn-primary">Save workout</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Meal -->
+    <div class="modal-overlay" id="modal-meal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Log meal</h3>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <form id="form-log-meal">
+                <div class="modal-body">
+                    <div>
+                        <label class="form-label" style="margin-bottom: 6px; display: block;">Common presets</label>
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                            <button type="button" class="chip-btn meal-preset-chip" data-name="Avocado toast & eggs" data-cal="420" data-p="18" data-c="34" data-f="22">Avo toast</button>
+                            <button type="button" class="chip-btn meal-preset-chip" data-name="Grilled chicken & rice" data-cal="550" data-p="45" data-c="50" data-f="12">Chicken & rice</button>
+                            <button type="button" class="chip-btn meal-preset-chip" data-name="Salmon with greens" data-cal="580" data-p="40" data-c="20" data-f="28">Salmon bowl</button>
+                            <button type="button" class="chip-btn meal-preset-chip" data-name="Whey shake & banana" data-cal="270" data-p="30" data-c="30" data-f="3">Protein shake</button>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <select class="form-select" id="meal-category">
+                                <option value="breakfast">Breakfast</option>
+                                <option value="lunch">Lunch</option>
+                                <option value="dinner">Dinner</option>
+                                <option value="snack">Snack</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Calories (kcal)</label>
+                            <input type="number" class="form-input" id="meal-calories" value="450" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Meal description</label>
+                        <input type="text" class="form-input" id="meal-name" placeholder="e.g. Oatmeal with blueberries" required>
+                    </div>
+
+                    <div class="form-row" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="form-group">
+                            <label class="form-label">Protein (g)</label>
+                            <input type="number" class="form-input" id="meal-protein" value="25">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Carbs (g)</label>
+                            <input type="number" class="form-input" id="meal-carbs" value="45">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Fat (g)</label>
+                            <input type="number" class="form-input" id="meal-fat" value="15">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary modal-cancel-btn">Cancel</button>
+                    <button type="submit" class="btn-primary">Save meal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 4: Vitals -->
+    <div class="modal-overlay" id="modal-vitals">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Record clinical vitals</h3>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <form id="form-log-vitals">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Systolic BP (mmHg)</label>
+                            <input type="number" class="form-input" id="vitals-systolic" value="118" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Diastolic BP (mmHg)</label>
+                            <input type="number" class="form-input" id="vitals-diastolic" value="78" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Resting pulse (bpm)</label>
+                            <input type="number" class="form-input" id="vitals-hr" value="70" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Weight (kg)</label>
+                            <input type="number" step="0.1" class="form-input" id="vitals-weight" value="68.5" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Fasting glucose (mg/dL)</label>
+                            <input type="number" class="form-input" id="vitals-glucose" value="95">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Blood oxygen SpO2 (%)</label>
+                            <input type="number" class="form-input" id="vitals-spo2" value="99" min="70" max="100">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary modal-cancel-btn">Cancel</button>
+                    <button type="submit" class="btn-primary">Save vitals</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 5: Sleep -->
+    <div class="modal-overlay" id="modal-sleep">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Record sleep interval</h3>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <form id="form-log-sleep">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Bedtime</label>
+                            <input type="time" class="form-input" id="sleep-bedtime" value="23:15" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Wake time</label>
+                            <input type="time" class="form-input" id="sleep-waketime" value="07:15" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Sleep quality</label>
+                        <select class="form-select" id="sleep-quality">
+                            <option value="Restful">Deep & restful (Optimal)</option>
+                            <option value="Average">Standard baseline</option>
+                            <option value="Fragmented">Restless / fragmented</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-textarea" id="sleep-notes" rows="2" placeholder="Room conditions, evening routine..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary modal-cancel-btn">Cancel</button>
+                    <button type="submit" class="btn-primary">Save sleep</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 6: Add Habit -->
+    <div class="modal-overlay" id="modal-habit">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Add habit</h3>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <form id="form-add-habit">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label">Habit description</label>
+                        <input type="text" class="form-input" id="habit-text" placeholder="e.g. 15 min outdoor walk, mobility stretch" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary modal-cancel-btn">Cancel</button>
+                    <button type="submit" class="btn-primary">Save habit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="audio.js"></script>
+    <script src="charts.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
